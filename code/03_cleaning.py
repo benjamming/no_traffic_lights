@@ -6,7 +6,7 @@ from os import path
 DATA_IN = "data/raw/semi-raw_data.csv"
 DATA_OUT = "data/clean/signals.csv"
 
-renames = {
+RENAMES = {
     'CROSSSTREE': 'cross_street',
     #'DESCRIPTIO': 'desription',
     'INTID': 'int_ID',
@@ -21,15 +21,15 @@ renames = {
     'UNITID': 'unit_ID'
 }
 
-drops = ['OWNER2', 'DESCRIPTIO']
+DROPS = ['OWNER2', 'DESCRIPTIO']
 
 def read_in(path_to_data):
     assert path.exists(path_to_data)
     return pd.read_csv(path_to_data, index_col=0)
 
 def clean_columns(df):
-    df = df.drop(drops, axis=1)
-    df = df.rename(renames, axis=1)
+    df = df.drop(DROPS, axis=1)
+    df = df.rename(RENAMES, axis=1)
     return df
 
 def fix_times(df):
