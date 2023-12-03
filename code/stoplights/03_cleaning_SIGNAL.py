@@ -3,12 +3,14 @@ import pyparsing as pyp
 
 from os import path
 
-DATA_IN = "data/raw/semi-raw_data.csv"
+DATA_IN = "data/raw/Jefferson_County_KY_Signalized_Intersections.csv"
 DATA_OUT = "data/clean/signals.csv"
 
 RENAMES = {
-    'CROSSSTREE': 'cross_street',
-    #'DESCRIPTIO': 'desription',
+    "X":"longitude",
+    "Y":"latitude",
+    'CROSSSTREET': 'cross_street',
+    #'DESCRIPTION': 'desription',
     'INTID': 'int_ID',
     'MAINSTREET': 'main_street',
     'MILEPOINT': 'milepoint',
@@ -21,11 +23,11 @@ RENAMES = {
     'UNITID': 'unit_ID'
 }
 
-DROPS = ['OWNER2', 'DESCRIPTIO']
+DROPS = ['OWNER2', 'DESCRIPTION']
 
 def read_in(path_to_data):
     assert path.exists(path_to_data)
-    return pd.read_csv(path_to_data, index_col=0)
+    return pd.read_csv(path_to_data)
 
 def clean_columns(df):
     df = df.drop(DROPS, axis=1)
