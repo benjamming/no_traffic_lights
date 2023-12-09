@@ -10,7 +10,7 @@ RENAMES = {
     "X":"longitude",
     "Y":"latitude",
     'CROSSSTREET': 'cross_street',
-    #'DESCRIPTION': 'desription',
+    #'DESCRIPTION': 'description',
     'INTID': 'int_ID',
     'MAINSTREET': 'main_street',
     'MILEPOINT': 'milepoint',
